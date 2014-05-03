@@ -1,15 +1,5 @@
 .container
-  %a{:href => "#", :class => "firstlink"} click me plz
-
-  #lel.modal.fade
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %button.close.fui-cross{:type => 'button', "data-dismiss" => 'modal', "aria-hidden" => 'true'}
-            %h4.modal-title Drink
-
-  :javascript
-    $(".firstlink").click(function(){
-      $("#lel").modal("show");
-    });
-
+  %p
+    hello world
+  %a{:href => "/drinks/new"}
+    New Drink Session
