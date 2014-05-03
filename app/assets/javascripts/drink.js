@@ -1,6 +1,6 @@
 // Handle the creation of a new drink
 
-$(document).ready(function() {
+var ready = function() {
   $(".field-amount input:radio").click(function() {
     var selection = $(".field-amount input[type='radio']:checked").val();
     $("#solo_pic").toggleClass("blur_pic");
@@ -9,5 +9,7 @@ $(document).ready(function() {
     $("#water_pic").toggleClass("blur_pic");
     $("#" + selection + "_pic").toggleClass("blur_pic");
   });
-});
+}
 
+$(document).ready(ready);
+$(document).on('page:load', ready);
