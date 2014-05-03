@@ -1,0 +1,79 @@
+/*
+ * Dropit v1.0
+ * http://dev7studios.com/dropit
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* These styles assume you are using ul and li */
+.dropit {
+    list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.dropit .dropit-trigger { position: relative; }
+.dropit .dropit-submenu {
+    position: absolute;
+    top: 100%;
+    right: 0; /* dropdown left or right */
+    z-index: 1000;
+    display: none;
+    min-width: 146px;
+    list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.dropit .dropit-open .dropit-submenu { display: block; }
+
+.menu ul { display: none; } /* Hide before plugin loads */
+.menu ul.dropit-submenu {
+    background-color: #454E5C;
+    padding: 3px;
+    margin: 33px 0 0 0px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+       -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+            box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+}
+
+.menu ul.dropit-submenu::before {
+content: "";
+border-style: solid;
+border-width: 0 9px 9px 9px;
+border-color: transparent transparent #454E5C transparent;
+height: 0px;
+position: absolute;
+right: 12px;
+top: -9px;
+width: 0px;
+-webkit-transform: rotate(360deg);
+}
+
+.headlearning{
+  color:white;
+  padding:8px;
+}
+
+.menu ul.dropit-submenu a {
+    min-width: 146px;
+border-radius: 2px;
+      color: white!important;
+      display: block;
+      font-size: 14px;
+      padding: 12px 9px;
+      text-decoration: none;
+      display: block;
+}
+.menu ul.dropit-submenu a:hover {
+    background: #88d5c2;
+    color: #fff!important;
+    text-decoration: none;
+}
+
+.menu li{
+    float: right;
+}
