@@ -4,12 +4,11 @@ class DrinksController < ApplicationController
   end
 
   def create
-    @drink = Drink.new(drink_params)
+    @drink = Drink.new
 
     respond_to do |format|
       if @drink.save
-        format.html { redirect_to @drink, notice: 'drink was successfully created.' }
-        format.json { render :show, status: :created, location: @drink }
+        format.html { redirect_to "/"}
       else
         format.html { render :new }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
