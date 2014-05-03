@@ -5,7 +5,7 @@ class DrinksController < ApplicationController
   end
 
   def create
-    @drink = Drink.new(drink_params)
+    @drink = current_user.drinks.build(drink_params)
 
     respond_to do |format|
       if @drink.save
@@ -20,8 +20,7 @@ class DrinksController < ApplicationController
   private
 
     def drink_params
-      params.require(:drink).permit(:alcohol, :amount, :hunger, :mood)
+      params.require(:drink).permit(:alcohol, :amount, :hunger, :mood, :user_id)
     end
-
 
 end
