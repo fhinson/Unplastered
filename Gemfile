@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'haml'
 gem 'nprogress-rails' #nice progress bar for ajax/turbolinks
 gem 'devise', '~> 3.2'
+gem 'twilio-ruby'
 
 gem 'twilio-ruby'
 
