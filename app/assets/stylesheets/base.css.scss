@@ -1,3 +1,31 @@
-// Place all the styles related to the base controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body{
+  background:url("cream_pixels.png");
+}
+
+.sectioned{
+ margin:100px auto;
+ text-align:center;
+ max-width:600px;
+}
+
+.logoed{
+margin:60px;
+}
+
+.form-push{
+  margin-bottom:30px;
+}
+
+.wineimage{
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.jumbotron{
+  background:white;
+  padding:40px;
+}
+
+.full-btn{
+  width:100%;
+}

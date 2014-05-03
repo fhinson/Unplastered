@@ -1,27 +1,29 @@
-= form_for :drink, :url => {:controller => "drinks", :action => "create"} do |f|
-  - if @drink.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@drink.errors.count, "error")
-        prohibited this drink from being saved:
-      %ul
-        - @drink.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :alcohol
-    %br/
-    = f.text_field :alcohol
-  .field
-    = f.label :amount
-    %br/
-    = f.number_field :amount
-  .field
-    = f.label :hunger
-    %br/
-    = f.number_field :hunger
-  .field
-    = f.label :mood
-    %br/
-    = f.text_field :mood
-  .actions
-    = f.submit
+.container
+  .sectioned
+    %h2.logoed
+      unplastered
+
+    = form_for :drink, :url => {:controller => "drinks", :action => "create"} do |f|
+      .jumbotron
+        .row.form-push
+          .col-md-4
+            Type of Alcohol
+          .col-md-8
+            = f.text_field :alcohol, :class => "form-control"
+        .row.form-push
+          .col-md-4
+            Amount
+          .col-md-8
+            = f.text_field :amount, :class => "form-control"
+        .row.form-push
+          .col-md-4
+            How hungry are you?
+          .col-md-8
+            = f.text_field :hunger, :class => "form-control"
+        .row.form-push
+          .col-md-4
+            What's your mood?
+          .col-md-8
+            = f.text_field :mood, :class => "form-control"
+        .actions
+          = f.submit :class => "btn btn-primary full-btn"
