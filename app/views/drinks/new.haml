@@ -1,3 +1,5 @@
+= stylesheet_link_tag("drinks")
+
 .container
   .sectioned
     %h2.logoed
@@ -21,13 +23,13 @@
         .field-amount
           = f.label :amount
           = radio_button_tag(:glass, "shot")
-          = label_tag 'shot', image_tag("shot.png")
+          = label_tag 'shot', image_tag("shot.png", id: "shot_pic")
           = radio_button_tag(:glass, "solo")
-          = label_tag 'solo', image_tag("solo.png")
+          = label_tag 'solo', image_tag("solo.png", id: "solo_pic")
           = radio_button_tag(:glass, "gatorade")
-          = label_tag 'gatorade', image_tag("gatorade.png")
+          = label_tag 'gatorade', image_tag("gatorade.png", id: "gatorade_pic")
           = radio_button_tag(:glass, "water")
-          = label_tag 'water', image_tag("water.png")
+          = label_tag 'water', image_tag("water.png", id: "water_pic")
           .hidden-number{:style => "display:none"}
             = f.number_field :amount
         .field-hunger
