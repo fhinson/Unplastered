@@ -1,10 +1,11 @@
 class DrinksController < ApplicationController
+  before_action :authenticate_user!
   def new
     @drink = Drink.new
   end
 
   def create
-    @drink = Drink.new
+    @drink = Drink.new(drink_params)
 
     respond_to do |format|
       if @drink.save
