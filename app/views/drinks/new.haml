@@ -8,9 +8,18 @@
         - @drink.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :alcohol
-    %br/
-    = f.text_field :alcohol
+    = radio_button_tag(:alcohol, "Vodka")
+    = label_tag(:vodka, "Vodka")
+    = radio_button_tag(:alcohol, "Rum")
+    = label_tag(:rum, "Rum")
+    = radio_button_tag(:alcohol, "Whiskye")
+    = label_tag(:whiskey, "Whiskey")
+    = radio_button_tag(:alcohol, "Gin")
+    = label_tag(:gin, "Gin")
+    = radio_button_tag(:alcohol, "Beer")
+    = label_tag(:beer, "Beer")
+    = radio_button_tag(:alcohol, "Wine")
+    = label_tag(:wine, "Wine")
   .field
     = f.label :amount
     %br/
