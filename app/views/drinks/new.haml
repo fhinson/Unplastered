@@ -2,7 +2,6 @@
   .sectioned
     %h2.logoed
       unplastered
-
     = form_for :drink, :url => {:controller => "drinks", :action => "create"} do |f|
       - if @drink.errors.any?
         #error_explanation
@@ -13,28 +12,29 @@
             - @drink.errors.full_messages.each do |message|
               %li= message
       .jumbotron
-        .field
-          = radio_button_tag(:alcohol, "Vodka")
-          = label_tag(:vodka, "Vodka")
-          = radio_button_tag(:alcohol, "Rum")
-          = label_tag(:rum, "Rum")
-          = radio_button_tag(:alcohol, "Whiskye")
-          = label_tag(:whiskey, "Whiskey")
-          = radio_button_tag(:alcohol, "Gin")
-          = label_tag(:gin, "Gin")
-          = radio_button_tag(:alcohol, "Beer")
-          = label_tag(:beer, "Beer")
-          = radio_button_tag(:alcohol, "Wine")
-          = label_tag(:wine, "Wine")
-        .field
+        .field-alcohol
+          %label Alcohol
+          - ['rum', 'whiskey', 'gin', 'beer', 'wine'].each do |alcohol|
+            %label
+              = f.radio_button(:alcohol, alcohol)
+              = alcohol.humanize
+        .field-amount
           = f.label :amount
-          %br/
-          = f.number_field :amount
-        .field
+          = radio_button_tag(:glass, "Shot")
+          = label_tag 'shot', image_tag("shot.png")
+          = radio_button_tag(:glass, "Solo")
+          = label_tag 'solo', image_tag("solo.png")
+          = radio_button_tag(:glass, "Shot")
+          = label_tag 'gatorade', image_tag("gatorade.png")
+          = radio_button_tag(:glass, "Shot")
+          = label_tag 'water', image_tag("water.png")
+          .hidden-number{:style => "display:none"}
+            = f.number_field :amount
+        .field-hunger
           = f.label :hunger
           %br/
           = f.number_field :hunger
-        .field
+        .field-mood
           = f.label :mood
           %br/
           = f.text_field :mood
