@@ -4,10 +4,35 @@
       unplastered
     = link_to image_tag("flat/icons/wine.svg", :style => "width:200px", :class => "wineimage"), "drinks/new"
     %h3
-      .label.label-info
+      .label.label-info.bac
         = calculate_bac(current_user).round(3)
 
 :javascript
+  $( document ).ready(function() {
+    looper();
+  });
+
+  function looper() {
+    setTimeout(function () {
+        refresher();
+        looper();
+    }, 1000);
+  }
+
+  function refresher(){
+    $.ajax({
+        url: '/users/' + 1 + '/refresh',
+        type:   'GET',
+        dataType: 'json',
+        success: function (data) {
+          console.log("function is being called");
+          $(".bac").text(data[0]);
+        },
+        error: function (response) {
+        }
+      });
+  }
+
   function imageBounce(){
     $('.wineimage').addClass('animated pulse');
   }
