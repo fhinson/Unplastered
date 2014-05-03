@@ -20,13 +20,13 @@
               = alcohol.humanize
         .field-amount
           = f.label :amount
-          = radio_button_tag(:glass, "Shot")
+          = radio_button_tag(:glass, "shot")
           = label_tag 'shot', image_tag("shot.png")
-          = radio_button_tag(:glass, "Solo")
+          = radio_button_tag(:glass, "solo")
           = label_tag 'solo', image_tag("solo.png")
-          = radio_button_tag(:glass, "Shot")
+          = radio_button_tag(:glass, "gatorade")
           = label_tag 'gatorade', image_tag("gatorade.png")
-          = radio_button_tag(:glass, "Shot")
+          = radio_button_tag(:glass, "water")
           = label_tag 'water', image_tag("water.png")
           .hidden-number{:style => "display:none"}
             = f.number_field :amount
@@ -39,4 +39,5 @@
           %br/
           = f.text_field :mood
         .actions
+          %br/
           = f.submit :class => "btn btn-primary full-btn"

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get 'history/' => 'base#history'
 
   resources :drinks, :except => [:index, :show, :edit]
+
+  post 'twilio/voice' => 'twilio#voice'
 end
