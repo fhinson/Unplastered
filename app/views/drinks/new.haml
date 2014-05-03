@@ -1,4 +1,4 @@
-= form_for(@drink) do |f|
+= form_for :drink, :url => {:controller => "drinks", :action => "create"} do |f|
   - if @drink.errors.any?
     #error_explanation
       %h2

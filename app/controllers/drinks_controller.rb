@@ -4,7 +4,7 @@ class DrinksController < ApplicationController
   end
 
   def create
-    @drink = Drink.new
+    @drink = Drink.new(drink_params)
 
     respond_to do |format|
       if @drink.save
@@ -15,6 +15,12 @@ class DrinksController < ApplicationController
       end
     end
   end
+
+  private
+
+    def drink_params
+      params.require(:drink).permit(:alcohol, :amount, :hunger, :mood)
+    end
 
 
 end
