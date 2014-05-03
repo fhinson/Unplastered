@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'base#index'
 
   get 'history/' => 'base#history'
+  post 'twilio/voice' => 'twilio#voice'
 
   resources :drinks, :except => [:index, :show, :edit]
 end
