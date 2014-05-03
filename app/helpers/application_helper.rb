@@ -1,5 +1,6 @@
 module ApplicationHelper
-  def calculate_bac(user, drink)
+  def calculate_bac(user)
+    drink = user.drinks.last
     body_water_constant = user.sex == "male" ? 0.58 : 0.49
     weight = user.weight
     drinks = drink.amount/0.6
