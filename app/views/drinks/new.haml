@@ -1,0 +1,27 @@
+= form_for(@drink) do |f|
+  - if @drink.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@drink.errors.count, "error")
+        prohibited this drink from being saved:
+      %ul
+        - @drink.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :alcohol
+    %br/
+    = f.text_field :alcohol
+  .field
+    = f.label :amount
+    %br/
+    = f.number_field :amount
+  .field
+    = f.label :hunger
+    %br/
+    = f.number_field :hunger
+  .field
+    = f.label :mood
+    %br/
+    = f.text_field :mood
+  .actions
+    = f.submit
