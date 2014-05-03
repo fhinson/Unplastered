@@ -1,4 +1,5 @@
 class DrinksController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user!
   def new
     @drink = Drink.new

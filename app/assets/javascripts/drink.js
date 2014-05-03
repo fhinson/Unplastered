@@ -6,4 +6,3 @@ $(document).ready(function() {
     console.log($("label[for=\'" + selection + "\']").text());
   });
 });
-
