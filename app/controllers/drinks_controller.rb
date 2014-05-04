@@ -20,11 +20,14 @@ class DrinksController < ApplicationController
     respond_to do |format|
       if @drink.save
         format.html { redirect_to "/"}
-        @client.account.messages.create(
-          :from => '+17328100203',
-          :to => @user.friendnumber,
-          :body => "I'm plastered as fuck"
-        )
+        bac = calculate_bac(@user)
+        if (bac >= 0.1)
+          @client.account.messages.create(
+            :from => '+17328100203',
+            :to => @user.friendnumber,
+            :body => "Your friend #{@user.name} has a BAC of #{bac.round(4)}. Please go check up to see if he/she is ok."
+          )
+        end
       else
         format.html { render :new }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
