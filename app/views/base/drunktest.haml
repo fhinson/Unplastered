@@ -1,0 +1,49 @@
+:css
+  #wrap {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .half {
+    width: 50%;
+    margin-top: 100px;
+    float: left;
+  }
+  div {
+    text-align: center;
+    font-size: 60px;
+  }
+  #hands,
+  #fingers {
+    font-weight: bold;
+    font-size: 200px;
+  }
+%script{src: "//js.leapmotion.com/0.2.0-beta1/leap.min.js"}
+#wrap
+  .half
+    #hands 2
+    #description-hands hands
+  .half
+    #fingers 10
+    #description-fingers fingers
+:javascript
+  var handsDiv = document.getElementById("hands");
+  var fingersDiv = document.getElementById("fingers");
+
+  var handsDesc = document.getElementById("description-hands");
+  var fingersDesc = document.getElementById("description-fingers");
+
+  Leap.loop(function(obj) {
+    var hands = obj.hands.length;
+    var fingers = obj.pointables.length;
+
+    handsDiv.innerHTML = hands;
+    fingersDiv.innerHTML = fingers;
+
+    var a = hands == 1 ? "hand" : "hands";
+    var b = fingers == 1 ? "finger" : "fingers";
+
+    handsDesc.innerHTML = a;
+    fingersDesc.innerHTML = b;
+
+    document.title = [hands, a, fingers, b].join(" ");
+  });

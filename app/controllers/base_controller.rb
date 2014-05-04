@@ -7,4 +7,8 @@ class BaseController < ApplicationController
     @user = current_user
     @drinks = @user.drinks
   end
+
+  def drunktest
+
+  end
 end
