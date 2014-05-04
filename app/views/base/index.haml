@@ -5,7 +5,7 @@
     = link_to image_tag("flat/icons/wine.svg", :style => "width:200px", :class => "wineimage"), "drinks/new"
     %h3
       .label.label-info.bac
-        = calculate_bac(current_user).round(3)
+        = calculate_bac(current_user).round(6)
 
 :javascript
   $(document).ready(function() {

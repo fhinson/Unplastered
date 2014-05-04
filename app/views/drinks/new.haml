@@ -32,6 +32,7 @@
           = label_tag 'water', image_tag("water.png", id: "water_pic")
           .hidden-number{:style => "display:none"}
             = f.number_field :amount
+        #slider-range{:style => "display:none"}
         .field-hunger
           = f.label :hunger
           %br/
