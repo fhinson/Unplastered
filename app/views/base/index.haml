@@ -1,5 +1,6 @@
 .container
   .sectioned
+    #alert_placeholder
     %h2.logoed
       unplastered
     = link_to image_tag("flat/icons/wine.svg", :style => "width:200px", :class => "wineimage"), "drinks/new"
@@ -26,6 +27,9 @@
         dataType: 'json',
         success: function (data) {
           $(".bac").text(data[0].toFixed(6));
+          if(parseFloat(data[0]) > 0.08){
+             bootstrap_alert.warning("Watch out! Your BAC is above the legal driving limit. Your friend has been notified.");
+          }
         },
         error: function (response) {
         }

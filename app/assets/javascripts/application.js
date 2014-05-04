@@ -16,3 +16,9 @@
 //= require bootstrap.min
 //= require jquery-ui-1.10.3.custom.min
 //= require_tree .
+
+
+bootstrap_alert = function() {}
+bootstrap_alert.warning = function(message) {
+  $('#alert_placeholder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
+}

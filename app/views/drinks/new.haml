@@ -15,13 +15,13 @@
               %li= message
       .jumbotron
         .field-alcohol
-          %label Alcohol
           - ['vodka', 'rum', 'whiskey', 'gin', 'beer', 'wine'].each do |alcohol|
-            %label
-              = f.radio_button(:alcohol, alcohol)
-              = alcohol.humanize
+            %h4{:style => "display:inline; font-size:18px"}
+              %label.label.label-primary{:style => "margin-right:5px"}
+                = f.radio_button(:alcohol, alcohol)
+                = alcohol.humanize
+      .jumbotron
         .field-amount
-          = f.label :amount
           = radio_button_tag(:glass, "shot")
           = label_tag 'shot', image_tag("shot.png", id: "shot_pic")
           = radio_button_tag(:glass, "solo")
@@ -45,7 +45,7 @@
         .field-mood
           = f.label :mood
           %br/
-          = f.text_field :mood
+          = f.text_field :mood, :class => "form-control"
         .actions
           %br/
           = f.submit :class => "btn btn-primary full-btn"
