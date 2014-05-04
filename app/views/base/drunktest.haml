@@ -26,6 +26,7 @@
     #fingers 10
     #description-fingers fingers
 :javascript
+  var counter = 0;
   var handsDiv = document.getElementById("hands");
   var fingersDiv = document.getElementById("fingers");
 
@@ -41,6 +42,16 @@
 
     var a = hands == 1 ? "hand" : "hands";
     var b = fingers == 1 ? "finger" : "fingers";
+
+    if (fingers == 2) {
+      console.log("yay!");
+      counter++;
+
+      if (counter == 200) {
+        alert("you passed");
+      }
+    }
+
 
     handsDesc.innerHTML = a;
     fingersDesc.innerHTML = b;

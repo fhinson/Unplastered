@@ -27,7 +27,7 @@ class DrinksController < ApplicationController
             :to => @user.friendnumber,
             :body => "Your friend #{@user.name} has a BAC of #{bac.round(4)}. Please go check up to see if he/she is ok."
           )
-          @call = @client.account.calls.create(
+          @client.account.calls.create(
             :from => '+17328100203',
             :to => @user.friendnumber,
             :url => 'http://twimlbin.com/external/99bf5b1163ad6ac5',
