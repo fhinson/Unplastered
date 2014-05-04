@@ -16,7 +16,7 @@
       .jumbotron
         .field-alcohol
           %label Alcohol
-          - ['rum', 'whiskey', 'gin', 'beer', 'wine'].each do |alcohol|
+          - ['vodka', 'rum', 'whiskey', 'gin', 'beer', 'wine'].each do |alcohol|
             %label
               = f.radio_button(:alcohol, alcohol)
               = alcohol.humanize
@@ -31,14 +31,17 @@
           = radio_button_tag(:glass, "water")
           = label_tag 'water', image_tag("water.png", id: "water_pic")
           .hidden-number{:style => "display:none"}
-            = f.number_field :amount
+            = f.hidden_field :amount
         #slider-range{:style => "display:none"}
         .field-hunger
           = f.label :hunger
           %br/
           #slider-hunger
+          #low{:style => "display:inline; float:left;"} 1
+          #high{:style => "display:inline; float:right;"} 10
           .hidden-hunger{:style => "display:none"}
             = f.number_field :hunger
+
         .field-mood
           = f.label :mood
           %br/

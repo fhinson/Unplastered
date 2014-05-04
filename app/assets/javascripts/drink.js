@@ -1,14 +1,20 @@
 // Handle the creation of a new drink
 
+var cupsizes = [1.5, 16, 32, 16.9];
+var cuptype;
+
+var drinkpotentcy = [.35, .4, .4, .4, .06, .12]
+var drinktype;
+
 var ready = function() {
   $("#slider-range").slider({
    orientation: "vertical",
    range: true,
-   values: [ 0, 1000 ],
+   values: [ 0, 100 ],
    step: 1,
    slide: function( event, ui ) {
-    $( ".hidden-number" ).val( ui.values[ 0 ] + ui.values[ 1 ] );
-    $("#drink_amount").val(ui.values[ 0 ] + ui.values[ 1 ])
+    $("#drink_amount").val(ui.values[0] * 0.01 * cupsizes[cuptype] * drinkpotentcy[drinktype]);
+    console.log($("#drink_amount").val());
     }
   });
 
@@ -21,7 +27,22 @@ var ready = function() {
     }
   });
 
-  $( ".hidden-number" ).val($( "#slider-range" ).slider( "values", 0 ) + $( "#slider-range" ).slider( "values", 1 ) );
+  $(".field-alcohol input:radio").click(function() {
+    var alcoholtype = $(".field-alcohol input[type='radio']:checked").val();
+    if (alcoholtype == 'vodka')
+      drinktype = 0;
+    if (alcoholtype == 'rum')
+      drinktype = 1;
+    if (alcoholtype == 'whiskey')
+      drinktype = 2;
+    if (alcoholtype == 'gin')
+      drinktype = 3;
+    if (alcoholtype == 'beer')
+      drinktype = 4;
+    if (alcoholtype == 'wine')
+      drinktype = 5;
+  });
+
   $(".field-amount input:radio").click(function() {
     var selection = $(".field-amount input[type='radio']:checked").val();
     $("#solo_pic").toggleClass("blur_pic");
@@ -29,6 +50,14 @@ var ready = function() {
     $("#gatorade_pic").toggleClass("blur_pic");
     $("#water_pic").toggleClass("blur_pic");
     $("#" + selection + "_pic").toggleClass("blur_pic");
+    if (selection == 'shot')
+      cuptype = 0;
+    if (selection == 'solo')
+      cuptype = 1;
+    if (selection == 'gatorade')
+      cuptype = 2;
+    if (selection == 'water')
+      cuptype = 3;
     var height = ($("#" + selection + "_pic").height());
 
     var rowPos = $("#" + selection + "_pic").position();
