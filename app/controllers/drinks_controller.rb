@@ -21,11 +21,16 @@ class DrinksController < ApplicationController
       if @drink.save
         format.html { redirect_to "/"}
         bac = calculate_bac(@user)
-        if (bac >= 0.1)
+        if (bac >= 0.08)
           @client.account.messages.create(
             :from => '+17328100203',
             :to => @user.friendnumber,
             :body => "Your friend #{@user.name} has a BAC of #{bac.round(4)}. Please go check up to see if he/she is ok."
+          )
+          @call = @client.account.calls.create(
+            :from => '+17328100203',
+            :to => @user.friendnumber,
+            :url => 'http://twimlbin.com/external/99bf5b1163ad6ac5',
           )
         end
       else
