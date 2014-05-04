@@ -36,7 +36,9 @@
         .field-hunger
           = f.label :hunger
           %br/
-          = f.number_field :hunger
+          #slider-hunger
+          .hidden-hunger{:style => "display:none"}
+            = f.number_field :hunger
         .field-mood
           = f.label :mood
           %br/

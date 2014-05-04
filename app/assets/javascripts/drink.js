@@ -9,8 +9,17 @@ var ready = function() {
    slide: function( event, ui ) {
     $( ".hidden-number" ).val( ui.values[ 0 ] + ui.values[ 1 ] );
     $("#drink_amount").val(ui.values[ 0 ] + ui.values[ 1 ])
-  }
-});
+    }
+  });
+
+  $("#slider-hunger").slider({
+    min: 1,
+    max: 10,
+    step: 1,
+    slide: function(event, ui) {
+      $("#drink_hunger").val($("#slider-hunger").slider("value"));
+    }
+  });
 
   $( ".hidden-number" ).val($( "#slider-range" ).slider( "values", 0 ) + $( "#slider-range" ).slider( "values", 1 ) );
   $(".field-amount input:radio").click(function() {
