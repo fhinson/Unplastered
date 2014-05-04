@@ -7,7 +7,7 @@ module ApplicationHelper
     metabolism_constant = 0.017
     drinking_period = (Time.now - drink.created_at) / 3600
     bac = ((0.806 * drinks * 1.2)/(body_water_constant * weight)) - (metabolism_constant * drinking_period)
-    return bac
+    return bac > 0 ? bac : 0
   end
 
   def calculate_pi(user)

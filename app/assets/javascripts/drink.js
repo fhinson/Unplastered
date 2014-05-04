@@ -7,7 +7,8 @@ var ready = function() {
    values: [ 0, 1000 ],
    step: 1,
    slide: function( event, ui ) {
-    $( ".hidden-number" ).val( ui.values[ 0 ] + " " + ui.values[ 1 ] );
+    $( ".hidden-number" ).val( ui.values[ 0 ] + ui.values[ 1 ] );
+    $("#drink_amount").val(ui.values[ 0 ] + ui.values[ 1 ])
   }
 });
 
