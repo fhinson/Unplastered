@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   root 'base#index'
 
-  get 'history/' => 'base#history'
+  get '/history' => 'base#history'
+  get '/drunktest' => 'base#drunktest'
   post 'twilio/voice' => 'twilio#voice'
 
   resources :drinks, :except => [:index, :show, :edit]
