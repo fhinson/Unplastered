@@ -8,7 +8,7 @@
         = calculate_bac(current_user).round(3)
 
 :javascript
-  $( document ).ready(function() {
+  $(document).ready(function() {
     looper();
   });
 
@@ -25,8 +25,7 @@
         type:   'GET',
         dataType: 'json',
         success: function (data) {
-          console.log("function is being called");
-          $(".bac").text(data[0]);
+          $(".bac").text(Math.round(data[0] * 1000) / 1000);
         },
         error: function (response) {
         }

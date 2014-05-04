@@ -9,4 +9,15 @@ module ApplicationHelper
     bac = ((0.806 * drinks * 1.2)/(body_water_constant * weight)) - (metabolism_constant * drinking_period)
     return bac
   end
+
+  def calculate_pi(user)
+    drink = user.drinks.last
+    body_water_constant = user.sex == "male" ? 0.58 : 0.49
+    weight = user.weight * 3
+    hunger = drink.hunger * 5
+    bac = calculate_bac(user)
+    experience = 5
+    pi = (1000 * bac * hunger) / ((body_water_constant*weight) + experience)
+    return pi
+  end
 end
