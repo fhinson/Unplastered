@@ -11,8 +11,8 @@ class DrinksController < ApplicationController
   def create
     @drink = current_user.drinks.build(drink_params)
     @user = current_user
-    account_sid = 'ACf790f48ac9a0c4a1cb5e5548945e0889'
-    auth_token = '8be80276be5dd74cf822b080068b1fd4'
+    account_sid = 'INSERT SID HERE'
+    auth_token = 'INSERT TOKEN HERE'
 
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
